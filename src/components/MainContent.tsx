@@ -14,8 +14,7 @@ export default function MainContent(): JSX.Element {
   });
   const [allTodos, setAllTodos] = useState<IOneToDoItemFromDB[]>([]);
 
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
     try {
       const body = newTodo;
       const response = await axios.post("http://localhost:8000/todos", body);
