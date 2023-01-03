@@ -4,4 +4,3 @@ export interface IOneToDoItem {
   importance: string;
   dueDate: string | undefined;
 }
-

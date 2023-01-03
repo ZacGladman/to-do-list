@@ -6,9 +6,13 @@ import axios from "axios";
 import { IOneToDoItemFromDB } from "../utils/IOneToDoItemFromDB";
 
 export default function MainContent(): JSX.Element {
-
-  const [newTodo, setNewTodo] = useState<IOneToDoItem>({description: '', status: '', importance: '', dueDate: undefined})
-  const [allTodos, setAllTodos] = useState<IOneToDoItemFromDB[]>([])
+  const [newTodo, setNewTodo] = useState<IOneToDoItem>({
+    description: "",
+    status: "",
+    importance: "",
+    dueDate: undefined,
+  });
+  const [allTodos, setAllTodos] = useState<IOneToDoItemFromDB[]>([]);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -17,16 +21,15 @@ export default function MainContent(): JSX.Element {
       const response = await axios.post("http://localhost:8000/todos", body);
       console.log(response);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
-
+  };
 
   return (
     <>
-      <NewTodo newTodo={newTodo} setNewTodo={setNewTodo}/>
+      <NewTodo newTodo={newTodo} setNewTodo={setNewTodo} />
       <button onClick={handleSubmit}>submit</button>
-      <AllToDoItems allTodos={allTodos} setAllTodos={setAllTodos}/>
+      <AllToDoItems allTodos={allTodos} setAllTodos={setAllTodos} />
     </>
   );
 }
