@@ -18,7 +18,7 @@ export default function MainContent(): JSX.Element {
     try {
       const body = newTodo;
       const response = await axios.post(
-        "https://zac-todo-list.onrender.com/todos",
+        "https://zac-todo-list.onrender.com/items",
         body
       );
       console.log(response);

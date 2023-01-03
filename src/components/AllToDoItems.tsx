@@ -10,7 +10,7 @@ interface AllToDoItemsProps {
 export default function AllToDoItems(props: AllToDoItemsProps): JSX.Element {
   const getTodos = async () => {
     try {
-      const response = await fetch("https://zac-todo-list.onrender.com/todos");
+      const response = await fetch("https://zac-todo-list.onrender.com/items");
       const jsonBody = await response.json();
       console.log(jsonBody);
       props.setAllTodos(jsonBody);
@@ -26,7 +26,7 @@ export default function AllToDoItems(props: AllToDoItemsProps): JSX.Element {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`https://zac-todo-list.onrender.com/${id}`);
+      await axios.delete(`https://zac-todo-list.onrender.com/items/${id}`);
       console.log("item deleted");
     } catch (error) {
       console.error(error);
