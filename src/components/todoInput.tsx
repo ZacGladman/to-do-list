@@ -16,10 +16,11 @@ export default function NewTodo(props: newTodoProps): JSX.Element {
   // }
 
   function handleTimeSelection(date: Date | null) {
-    const stringDate = date?.toDateString();
+    const stringDate = date?.toString();
     setNewTodo({ ...newTodo, dueDate: stringDate });
     console.log(newTodo.dueDate);
     console.log(typeof newTodo.dueDate);
+    console.log(newTodo);
   }
 
   return (

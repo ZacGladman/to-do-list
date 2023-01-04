@@ -12,9 +12,7 @@ export default function AllToDoItems(props: AllToDoItemsProps): JSX.Element {
     try {
       const response = await fetch("https://zac-todo-list.onrender.com/items");
       const jsonBody = await response.json();
-      console.log(jsonBody);
       props.setAllTodos(jsonBody);
-      console.log(props.allTodos);
     } catch (error) {
       console.error(error);
     }
