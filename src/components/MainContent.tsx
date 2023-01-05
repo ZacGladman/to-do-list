@@ -18,10 +18,7 @@ export default function MainContent(): JSX.Element {
   const handleSubmit = async () => {
     try {
       const body = newTodo;
-      const response = await axios.post(
-        "https://zac-todo-list.onrender.com/items",
-        body
-      );
+      await axios.post("https://zac-todo-list.onrender.com/items", body);
       getTodos(setAllTodos);
     } catch (error) {
       console.error(error);
