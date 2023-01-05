@@ -3,5 +3,5 @@ export interface IOneToDoItemFromDB {
   description: string;
   status: string;
   importance: string;
-  dueDate: string | undefined;
+  due_date: string | undefined;
 }

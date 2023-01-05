@@ -16,8 +16,8 @@ export default function OneToDoItem(props: OneToDoItemProps): JSX.Element {
       <button onClick={handleDelete}>delete</button>
       <h3>
         Status: {item.status} | Importance: {item.importance} | Due:
-        {item.dueDate}
-        {item.dueDate}
+        {item.due_date}
+        {item.due_date}
       </h3>
     </>
   );
