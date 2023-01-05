@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { IOneToDoItemFromDB } from "../utils/IOneToDoItemFromDB";
 import axios from "axios";
+import { getTodos } from "../utils/getTodos";
 
 interface AllToDoItemsProps {
   allTodos: IOneToDoItemFromDB[];
@@ -9,25 +10,15 @@ interface AllToDoItemsProps {
 
 export default function AllToDoItems(props: AllToDoItemsProps): JSX.Element {
   const { setAllTodos } = props;
+
   useEffect(() => {
-    const getTodos = async () => {
-      try {
-        const response = await fetch(
-          "https://zac-todo-list.onrender.com/items"
-        );
-        const jsonBody = await response.json();
-        setAllTodos(jsonBody);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getTodos();
+    getTodos(setAllTodos);
   }, [setAllTodos]);
 
   const handleDelete = async (id: number) => {
     try {
       await axios.delete(`https://zac-todo-list.onrender.com/items/${id}`);
-      console.log("item deleted");
+      getTodos(setAllTodos);
     } catch (error) {
       console.error(error);
     }

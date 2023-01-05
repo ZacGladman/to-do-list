@@ -4,6 +4,7 @@ import { useState } from "react";
 import { IOneToDoItem } from "../utils/IOneToDoItem";
 import axios from "axios";
 import { IOneToDoItemFromDB } from "../utils/IOneToDoItemFromDB";
+import { getTodos } from "../utils/getTodos";
 
 export default function MainContent(): JSX.Element {
   const [newTodo, setNewTodo] = useState<IOneToDoItem>({
@@ -21,7 +22,7 @@ export default function MainContent(): JSX.Element {
         "https://zac-todo-list.onrender.com/items",
         body
       );
-      console.log(response);
+      getTodos(setAllTodos);
     } catch (error) {
       console.error(error);
     }
