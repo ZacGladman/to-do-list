@@ -8,7 +8,7 @@ import { IOneToDoItemFromDB } from "../utils/IOneToDoItemFromDB";
 export default function MainContent(): JSX.Element {
   const [newTodo, setNewTodo] = useState<IOneToDoItem>({
     description: "",
-    dueDate: undefined,
+    due_date: undefined,
     importance: "",
     status: "",
   });
