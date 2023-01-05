@@ -8,19 +8,21 @@ interface AllToDoItemsProps {
 }
 
 export default function AllToDoItems(props: AllToDoItemsProps): JSX.Element {
-  const getTodos = async () => {
-    try {
-      const response = await fetch("https://zac-todo-list.onrender.com/items");
-      const jsonBody = await response.json();
-      props.setAllTodos(jsonBody);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  const { setAllTodos } = props;
   useEffect(() => {
+    const getTodos = async () => {
+      try {
+        const response = await fetch(
+          "https://zac-todo-list.onrender.com/items"
+        );
+        const jsonBody = await response.json();
+        setAllTodos(jsonBody);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     getTodos();
-  });
+  }, [setAllTodos]);
 
   const handleDelete = async (id: number) => {
     try {
@@ -49,7 +51,7 @@ export default function AllToDoItems(props: AllToDoItemsProps): JSX.Element {
                   <th>{oneTodo.description}</th>
                   <th>{oneTodo.importance}</th>
                   <th>{oneTodo.status}</th>
-                  <th>{oneTodo.dueDate}</th>
+                  <th>{oneTodo.due_date}</th>
                   <button onClick={() => handleDelete(oneTodo.id)}>
                     delete
                   </button>
