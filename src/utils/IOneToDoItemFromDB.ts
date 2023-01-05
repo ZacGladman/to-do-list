@@ -1,7 +1,5 @@
-export interface IOneToDoItemFromDB {
+import { IOneToDoItem } from "./IOneToDoItem";
+
+export interface IOneToDoItemFromDB extends IOneToDoItem {
   id: number;
-  description: string;
-  status: string;
-  importance: string;
-  due_date: string | undefined;
 }
