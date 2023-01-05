@@ -1,0 +1,19 @@
+body {
+  font-family: "Montserrat";
+}
+
+.AppHeader {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.todoDescription {
+  width: 30%;
+  height: 3rem;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+.todoInput {
+  display: flex;
+}
